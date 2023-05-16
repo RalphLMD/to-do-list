@@ -1,0 +1,20 @@
+<%- include("header") -%>
+
+<div class="container mx-auto">
+    <h1> <%= kindOfDay %></h1>
+    <h2 id="time"> <%= timeOfDay %></h2>
+    <ul class="list-group my-4">
+    <% for (var i = 0; i<newListItems.length; i++){ %>
+        <input type="checkbox" class="list-group-item" /> 
+        <p><%= newListItems[i] %></p>
+    <% } %>
+    </ul>
+
+    <form action="/" method="POST">
+        <input class="form-control my-4" type="text" name="newItem" placeholder="New Item">
+        <button class="btn btn-primary" name="button">Add List</button>
+    </form>
+</div>
+
+<%- include("footer") -%>
+

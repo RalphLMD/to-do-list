@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 2rem;
+    padding: 2rem;
+    width: 450px;
+    border-radius: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+.list-group-item{
+
+}
+
+input:checked+p {
+    text-decoration: line-through;
+    text-decoration-color: #000000;
+}
+
+footer {
+    text-align: center;
+}
