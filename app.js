@@ -176,10 +176,7 @@ app.get("/:item", function(request, response){
 //     console.log("Server is running!")
 // })
 
-const PORT = process.env.PORT || 80;
-
-var server = app.listen(PORT, function() {
-    var host = server.address().address;
-    var port = server.address().port;
-    console.log("server is listening at http://%s:%s", host, port);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log("Listening on port " + PORT + "...");
 });
