@@ -1,18 +1,41 @@
 <%- include("header") -%>
 
 <div class="container mx-auto">
+
+    <% if (!listTitle) { %>
+        <h1>Original List</h1>
+    <% } else { %>
+        <h1><%= listTitle %></h1>
+    <% } %>
+    
+    
+
     <h1> <%= kindOfDay %></h1>
     <h2 id="time"> <%= timeOfDay %></h2>
     <ul class="list-group my-4">
-    <% for (var i = 0; i<newListItems.length; i++){ %>
-        <input type="checkbox" class="list-group-item" /> 
-        <p><%= newListItems[i] %></p>
+
+    <% if (!newListItems.length) { %>
+        <p>There are no items in the list</p>
+    <% } else { %>
+        <% newListItems.forEach(function(item){ %>
+        <form class="remove-item" method="POST" action="/delete">
+            <input name="checkbox" type="checkbox" value="<%= item._id%>"class="list-group-item" onChange="this.form.submit()" /> 
+            <p><%= item.name %></p>
+            <input type="hidden" name="listName" value="<%= listTitle %>"/>
+        </form>
+        <% }) %>
     <% } %>
+
+    
+    <!-- <% for (var i = 0; i<newListItems.length; i++){ %>
+        <input type="checkbox" class="list-group-item" /> 
+        <p><%= newListItems[i].name %></p>
+    <% } %> -->
     </ul>
 
-    <form action="/" method="POST">
+    <form class="item" action="/" method="POST">
         <input class="form-control my-4" type="text" name="newItem" placeholder="New Item">
-        <button class="btn btn-primary" name="button">Add List</button>
+        <button class="btn btn-primary" name="list" value="<%= listTitle %>">Add List</button>
     </form>
 </div>
 
