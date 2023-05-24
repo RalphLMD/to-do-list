@@ -171,10 +171,15 @@ app.get("/:item", function(request, response){
 
 // app.listen(port)
 
-app.listen(process.env.PORT || 3000, function(){
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-});
 
-app.listen(3000, function(){
-    console.log("Server is running!")
-})
+// app.listen(3000, function(){
+//     console.log("Server is running!")
+// })
+
+const PORT = process.env.PORT || 80;
+
+var server = app.listen(PORT, function() {
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log("server is listening at http://%s:%s", host, port);
+});
