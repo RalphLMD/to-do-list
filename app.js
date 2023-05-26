@@ -15,8 +15,7 @@ app.use(express.static(__dirname + '/public'))
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 
-//mongoose.connect("mongodb://localhost:27017/todolistDB")
-mongoose.connect("mongodb+srv://ralphlance11:h7M3Ucm0TIJeCWmo@cluster0.ln7cqa9.mongodb.net/?retryWrites=true&w=majority/todolistDB")
+mongoose.connect("mongodb://localhost:27017/todolistDB")
 
 const listItemSchema = new mongoose.Schema({
     name: String
